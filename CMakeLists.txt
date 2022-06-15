@@ -36,3 +36,5 @@ if(CCACHE_PROGRAM)
 set(SRC_LIST source/task1.cpp source/task2.cpp source/task3.cpp source/main.cpp source/task1.h source/task2.h source/task3.h)
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
