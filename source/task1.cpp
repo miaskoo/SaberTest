@@ -23,22 +23,15 @@ char* test::intToBit(int value) {
 		bit = nextBit;
 		countCharacters++;
 	}
+	
 	result = new char[countCharacters + 1U];
 	result[countCharacters] = '\0';
-	auto indexChar = countCharacters - 1U;
-	while(bit) {
-		if (value >= bit) {
-			result[indexChar] = one;
-			value -= bit;
-		}
-		else {
-			result[indexChar] = zero;
-		}
-		bit /= 2;
-		indexChar--;
+	for (int n = isMinus ? 1 : 0; n < countCharacters; n++) {
+		result[n] = value % 2 ? one : zero;
+		value = value >> 1;
 	}
 	if (isMinus) {
-		result[indexChar] = minus;
+		result[0] = minus;
 	}
 	return result;
 }
