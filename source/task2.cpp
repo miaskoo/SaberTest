@@ -8,18 +8,13 @@ void test::removeDumps(char *str) {
 	
 	auto indexChar = 0U;
 	auto currentChar = str[indexChar];
+	int indexNextChar = 1U;
 	while(currentChar != endSymbol) {
-		auto indexNextChar = indexChar + 1U;
-		auto nextChar = str[indexNextChar];
-		while (currentChar == nextChar) {
-			int tempNumChar = indexNextChar;
-			while(str[tempNumChar] != endSymbol) {
-				str[tempNumChar] = str[tempNumChar + 1U];
-				tempNumChar++;
-			}
-			nextChar = str[indexNextChar];
+		while (currentChar == str[indexNextChar]) {
+			indexNextChar++;
 		}
 		indexChar++;
+		str[indexChar] = str[indexNextChar];
 		currentChar = str[indexChar];
 	}
 }
