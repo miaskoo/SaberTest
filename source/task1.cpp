@@ -7,20 +7,13 @@ char* test::intToBit(int value) {
 	char one = '1';
 	char minus = '-';
 	auto countCharacters = 1U;
-	bool isMinus = false;
-	if (value < 0) {
+	bool isMinus = value < 0;
+	if (isMinus) {
 		countCharacters++;
 		value *= -1;
-		isMinus = true;
 	}
-	
-	int bit = 1;
-	while (bit < value) {
-		auto nextBit = bit * 2;
-		if (nextBit > value) {
-			break;
-		}
-		bit = nextBit;
+
+	for (int bit = 2; bit <= value; bit *= 2) {
 		countCharacters++;
 	}
 	
