@@ -17,7 +17,9 @@ int main(int argc, const char * argv[]) {
 }
 
 void test::sampleTask1() {
-	test::printBit(4);
+	for (int n = 0; n < 65; n++) {
+		printBit(n);
+	}
 }
 
 void test::sampleTask2() {
