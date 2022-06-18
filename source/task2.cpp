@@ -4,17 +4,15 @@ void test::removeDumps(char *str) {
 	if (!str) {
 		return;
 	}
-	char endSymbol = '\0';
-	
 	auto indexChar = 0U;
-	auto currentChar = str[indexChar];
 	int indexNextChar = 1U;
-	while(currentChar != endSymbol) {
-		while (currentChar == str[indexNextChar]) {
-			indexNextChar++;
+	auto currentChar = str[indexChar];
+	while(currentChar != '\0') {
+		if (currentChar != str[indexNextChar]) {
+			indexChar++;
+			str[indexChar] = str[indexNextChar];
+			currentChar = str[indexChar];
 		}
-		indexChar++;
-		str[indexChar] = str[indexNextChar];
-		currentChar = str[indexChar];
+		indexNextChar++;
 	}
 }
